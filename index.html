@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Sindy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      width: 40px;
+    }
+
+    .navbar-menu a {
+      text-decoration: none;
+      color: black;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .navbar-menu a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 150px 50px 50px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero-text h1 {
+      font-size: 40px;
+      margin-bottom: 0;
+    }
+
+    .hero-text p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .hero-text button {
+      background: #C9E4C5;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero-text button a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .hero img {
+      border-radius: 50%;
+      background: pink;
+      padding: 20px;
+      width: 300px;
+    }
+
+    section {
+      padding: 50px;
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .project-card {
+      padding: 20px;
+      flex: 1 1 220px;
+      border-radius: 10px;
+      transition: 0.3s;
+      background: linear-gradient(135deg, #fcb1d1, #ffd6f0); /* Default gradient */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .project-card:nth-child(2) {
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    }
+
+    .project-card:nth-child(3) {
+      background: linear-gradient(135deg, #f6d365, #fda085);
+    }
+
+    .project-card:nth-child(4) {
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .contact {
+      background: #f9f9f9;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .contact-form {
+      flex: 1 1 300px;
+      margin-bottom: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background: #F589A8;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .contact-box {
+      background-color: #c4f0b4;
+      padding: 30px 40px;
+      border-radius: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #222;
+    }
+
+    .contact-item img {
+      width: 42px;
+      height: 42px;
+      margin-right: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .social-icons a img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    footer {
+      background: #D3EEEC;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 14px;
+    }
+
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact {
+        flex-direction: column;
+      }
+
+      .projects {
+        flex-direction: column;
+      }
+    }
+    projects, .blogs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project-card, .blog-card {
+      background: #f0f0f0;
+      padding: 20px;
+      flex: 1 1 220px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .project-card:hover, .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img, .blog-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .contact {
+      background: #f9f9f9;
+      padding: 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .contact-form {
+      flex: 1 1 300px;
+      margin-bottom: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #FFFF;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background: #F589A8;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .contact-info {
+      flex: 1 1 300px;
+      background: #C9E4C5;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+    .contact-box {
+            background-color: #c4f0b4;
+            padding: 30px 40px;
+            border-radius: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #222;
+        }
+
+        .contact-item i {
+            font-size: 20px;
+            margin-right: 15px;
+            color: #222;
+            width: 25px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #222;
+            font-size: 20px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+        .contact-item img,
+.social-icons a img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <nav class="navbar-menu">
+      <a href="#home">Home</a>
+      <a href="#project">Project</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>My Portofolio</h1>
+      <p>Hi, I’m Sindy Salsabilla - Seorang mahasiswa jurusan Bisnis Digital yang memiliki passion di dunia desain grafis.</p>
+      <button><a href="about.html">About Me</a></button>
+    </div>
+    <img src="images/cant.png" alt="Sindy">
+  </section>
+
+  <section id="project">
+    <h2>My Project</h2> 
+    <div class="projects">
+      <div class="project-card">
+        <img src="images/ecoslp logo.png" alt="Project 1">
+        <p><strong>Project #1</strong><br><a href="project1.html">View More →</a></p>
+      </div>
+      <div class="project-card">
+        <img src="images/sosmed 1.png" alt="Project 2">
+        <p><strong>Project #2</strong><br><a href="project2.html">View More →</a></p>
+      </div>
+      <div class="project-card">
+        <img src="images/uiux 1.png" alt="Project 3">
+        <p><strong>Project #3</strong><br><a href="project3.html">View More →</a></p>
+      </div>
+      <div class="project-card">
+        <img src="images/poster 4.png" alt="Project 4">
+        <p><strong>Project #4</strong><br><a href="project4.html">View More →</a></p>
+      </div>
+    </div>
+  </section>
+
+<section id="blog">
+  <h2>Blog</h2>
+  <div class="blogs">
+    <div class="blog-card">
+      <img src="images/blog 1.png" alt="Blog 1">
+        <a href="https://gitkreatif.com/blog/7-teknik-desain-grafis-yang-wajib-diketahui/" target="_blank"><img src alt="7 Teknik Desain Grafis yang Wajib Diketahui"></a>
+    </div>
+    <div class="blog-card">
+      <img src="images/blog 2.png" alt="Blog 2">
+      <a href="https://blog.blthemes.com/post/mau-jadi-desainer-handal-ikuti-8-tren-desain-grafis-2025-ini" target="_blank"><img src alt="Mau Jadi Desainer Handal? Ikuti 8 Tren Desain Grafis 2025 Ini"></a>
+    </div>
+    <div class="blog-card">
+      <img src="images/blog 3.png" alt="Blog 3">
+      <a href="https://blog.docotel.com/mitos-dan-fakta-seputar-desain-grafis-yang-beredar-di-masyarakat-2/" target="_blank"><img src alt="Mitos dan Fakta Seputar Desainer Grafis"></a>
+    </div>
+    <div class="blog-card">
+      <img src="images/blog 4.png" alt="Blog 4">
+      <a href="https://idseducation.com/tips-untuk-desainer-grafis-yang-sulit-mendapatkan-inspirasi/" target="_blank"><img src alt="Tips Buat Desainer Grafis yang Sulit Mendapatkan Inspirasi"></a>
+    </section>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-form">
+    <h2>Contact me</h2>
+    <p>Feel free to contact me any time</p>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button>Send</button>
+  </div>
+  <div class="contact-box">
+    <div class="contact-item">
+        <img src="images/gmail ikon.png" alt="Email Icon">
+        <a href="mailto:sabilaaasindi5@gmail.com">sabilaaasindi5@gmail.com</a>
+    </div>
+    <div class="contact-item">
+        <img src="images/wa ikon.png" alt="Phone Icon">
+        <a href="tel:+6285137977427">+62 851-3797-7427</a>
+    </div>
+    <div class="contact-item">
+        <img src="images/maps ikon.png" alt="Location Icon">
+        <a href="https://maps.google.com?q=Fatins+House+Kost+Muslimah,+Gn.+Sari,+Makassar" target="_blank">
+            Fatins House Kost Muslimah, Gn. Sari, Makassar
+        </a>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/namalinkedin" target="_blank"><img src="images/linkidn ikon.png" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/username" target="_blank"><img src="images/ig ikon.png" alt="Instagram"></a>
+        <a href="https://www.facebook.com/username" target="_blank"><img src="images/fb ikon.png" alt="Facebook"></a>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <h3>CIND,</h3>
+      <p>Sindy Salsabilla Wanda</p>
+      <p class="small-text">Design Grafis<br></p>
+      <p class="small-text">© 2025 CIND.<br>All Rights Reserved.</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/sindy-salsabilla-wanda?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/sindisalsabillaaa?igsh=MXhwcG9mczU1bHd1NQ%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/18gAeAN5GB/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+  </div>
+  <hr>
+  <p class="bottom-text">© 2025 CIND. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
