@@ -1,117 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <a href="index.html" class="back-button">Back to Project</a>
-  <title>Project #2 - Social Media Design</title>
+  <title>Social Media Design Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: white;
-      color: #333;
-    }
-
-    .container {
-      padding: 40px;
+      margin: 40px;
+      background: white;
+      color: #222;
     }
 
     .header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 30px;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 40px;
     }
 
-    .tag {
-      background-color: #f6ccdb;
-      padding: 15px 150px;
-      border-radius: 15px;
-      font-size: 20px;
-      font-weight: 500;
-      color: #333;
-    }
-
-    .header p {
+    .title {
       font-size: 24px;
-      font-weight: 300;
-      margin: 0;
-      line-height: 1.3;
     }
 
-    .top-row, .bottom-row {
+    .section-title {
+      background: #f8c9d4;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .gallery {
       display: flex;
       justify-content: space-between;
-      flex-wrap: nowrap;
-      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
     }
 
-    .top-row .item, .bottom-row .item {
-      width: 23%;
+    .item {
+      flex: 1 1 20%;
       text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      position: relative;
     }
 
     .item img {
-      width: 100%;
-      max-width: 200px;
-      border-radius: 15px;
-      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
       transition: transform 0.3s ease;
     }
 
-    /* ✅ Efek Zoom */
-    .item img:hover {
+    .item:hover img {
       transform: scale(1.05);
     }
 
-    .item img:active {
-      transform: scale(0.95);
+    .description {
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
     }
 
-    .phone {
-      max-width: 140px;
+    .item.active img {
+      transform: scale(1.2);
     }
 
-    @media (max-width: 768px) {
-      .top-row .item, .bottom-row .item {
-        width: 45%;
-        margin-bottom: 20px;
-      }
+    .item.active .description {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .caption {
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section .header {
+      flex-direction: row-reverse;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="section">
     <div class="header">
-      <div class="tag">Social Media Design</div>
-      <p>Project<br>#2</p>
+      <div class="title">Project #2</div>
+      <div class="section-title">Social Media Design</div>
     </div>
 
-    <div class="top-row">
-      <div class="item">
-        <img src="images/sosmed 1.png" alt="Post 1">
+    <div class="gallery">
+      <div class="item" onclick="toggleActive(this)">
+        <img src="images/sosmed 1.png" alt="Handsoap">
+        <div class="description">Desain promosi produk sabun tangan EcoSlip di Instagram.</div>
+        <div class="caption">postingan ecoslip</div>
       </div>
-      <div class="item">
-        <img src="images/sosmed 2.png" alt="Post 2">
+      <div class="item" onclick="toggleActive(this)">
+        <img src="images/sosmed 2.png" alt="Mini Series">
+        <div class="description">Desain post informatif untuk produk Mini Series EcoSlip.</div>
+        <div class="caption">postingan ecoslip</div>
       </div>
-      <div class="item">
-        <img src="images/sosmed 4.png" alt="Post 3">
+      <div class="item" onclick="toggleActive(this)">
+        <img src="images/sosmed 3.png" alt="How to Use">
+        <div class="description">Cara penggunaan produk EcoSlip ditampilkan dengan visual clean.</div>
+        <div class="caption">postingan ecoslip</div>
       </div>
-    </div>
-
-    <div class="bottom-row">
-      <div class="item">
-        <img class="phone" src="images/feed 1.png" alt="Phone 1">
+      <div class="item" onclick="toggleActive(this)">
+        <img src="images/sosmed 4.png" alt="Himabisdig UNM">
+        <div class="description">Desain feed bertema kartu nama digital untuk organisasi Himabisdig UNM.</div>
+        <div class="caption">postingan himabisdig_unm</div>
       </div>
-      <div class="item">
-        <img class="phone" src="images/feed 2.png" alt="Phone 2">
+      <div class="item" onclick="toggleActive(this)">
+        <img src="images/feed 1.png" alt="IG Store">
+        <div class="description">Feed Instagram untuk komunitas.</div>
+        <div class="caption">instagram komunitas</div>
       </div>
-      <div class="item">
-        <img class="phone" src="images/feed 3.png" alt="Phone 3">
+      <div class="item" onclick="toggleActive(this)">
+        <img src="images/feed 3.png" alt="KT UNM">
+        <div class="description">Feed struktur organisasi Himabisdig UNM.</div>
+        <div class="caption">himabisdig_unm project</div>
+      </div>
+      <div class="item" onclick="toggleActive(this)">
+        <img src="images/feed 2.png" alt="1111 Sale">
+        <div class="description">Desain promosi digital marketing untuk produk EcoSlip di Instagram.</div>
+        <div class="caption">ecoslip project</div>
       </div>
     </div>
   </div>
+
+  <script>
+    function toggleActive(el) {
+      document.querySelectorAll('.item').forEach(item => {
+        if (item !== el) {
+          item.classList.remove('active');
+        }
+      });
+      el.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

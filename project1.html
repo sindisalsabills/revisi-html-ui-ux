@@ -1,116 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <a href="index.html" class="back-button">Back to Project</a>
-  <title>Project #1 - Logo Design</title>
+  <title>Logo Design Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: white;
-      color: #333;
+      margin: 40px;
+      background: white;
+      color: #222;
     }
 
-    .container {
-      padding: 40px;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 40px;
     }
 
     .title {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin-bottom: 50px;
-    }
-
-    .title p {
       font-size: 24px;
-      font-weight: 300;
-      margin: 0;
-      line-height: 1.3;
     }
 
-    .tag {
-      background-color: #c7e7b6;
-      padding: 15px 150px;
-      border-radius: 15px;
+    .section-title {
+      background: #c8e6c9;
+      display: inline-block;
+      padding: 10px 140px;
+      border-radius: 10px;
+      font-weight: bold;
       font-size: 20px;
-      font-weight: 500;
-      color: #333;
     }
 
-    .logos {
+    .gallery {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
     }
 
-    .logo-item {
+    .item {
+      flex: 1 1 20%;
       text-align: center;
-      width: 22%;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      position: relative;
     }
 
-    .logo-item img {
-      width: 100%;
-      max-width: 120px;
-      margin-bottom: 40px;
-      cursor: pointer;
+    .item img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
       transition: transform 0.3s ease;
     }
 
-    /* ✅ Efek Zoom */
-    .logo-item img:hover {
+    .item:hover img {
       transform: scale(1.05);
     }
 
-    .logo-item img:active {
-      transform: scale(0.95);
-    }
-
-    .logo-item p {
+    .description {
+      display: none;
+      margin-top: 10px;
       font-size: 14px;
       color: #555;
     }
 
-    @media (max-width: 768px) {
-      .logos {
-        flex-wrap: wrap;
-        gap: 20px;
-      }
+    .item.active img {
+      transform: scale(1.2);
+    }
 
-      .logo-item {
-        width: 45%;
-      }
+    .item.active .description {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .caption {
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="title">
-      <p>Project<br>#1</p>
-      <div class="tag">Logo Design</div>
+  <div class="header">
+    <div class="title">Project #1</div>
+    <div class="section-title">Logo Design</div>
+  </div>
+
+  <div class="gallery">
+    <div class="item" onclick="toggleActive(this)">
+      <img src="images/ecoslp logo.png" alt="EcoSlip Logo">
+      <div class="description">Logo untuk produk ramah lingkungan bernama EcoSlip.</div>
+      <div class="caption">ecoslip project</div>
     </div>
-    <div class="logos">
-      <div class="logo-item">
-        <img src="images/ecoslp logo.png" alt="EcoSlip Logo">
-        <p>EcoSlip</p>
-      </div>
-      <div class="logo-item">
-        <img src="images/macn logo.png" alt="Macin Logo">
-        <p>klien project</p>
-      </div>
-      <div class="logo-item">
-        <img src="images/pzza logo.png" alt="Home Pizza Logo">
-        <p>klien project</p>
-      </div>
-      <div class="logo-item">
-        <img src="images/logo.png" alt="Web Logo">
-        <p>web logo project</p>
-      </div>
+    <div class="item" onclick="toggleActive(this)">
+      <img src="images/macn logo.png" alt="Macin Logo">
+      <div class="description">Logo untuk e-commerce fashion bernama Macin Shop.</div>
+      <div class="caption">klien project</div>
+    </div>
+    <div class="item" onclick="toggleActive(this)">
+      <img src="images/pzza logo.png" alt="Home Pizza Logo">
+      <div class="description">Logo usaha pizza rumahan bernama Home Made Pizza.</div>
+      <div class="caption">klien project</div>
+    </div>
+    <div class="item" onclick="toggleActive(this)">
+      <img src="images/logo.png" alt="Web Logo">
+      <div class="description">Logo website Portofolio saa.</div>
+      <div class="caption">web logo project</div>
     </div>
   </div>
+
+  <script>
+    function toggleActive(el) {
+      document.querySelectorAll('.item').forEach(item => {
+        if (item !== el) {
+          item.classList.remove('active');
+        }
+      });
+      el.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

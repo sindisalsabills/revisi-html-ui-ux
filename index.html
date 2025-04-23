@@ -106,46 +106,60 @@
       margin-bottom: 30px;
     }
 
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
-    .project-card {
-      padding: 20px;
-      flex: 1 1 220px;
+    .card {
+      background: #fff;
       border-radius: 10px;
-      transition: 0.3s;
-      background: linear-gradient(135deg, #fcb1d1, #ffd6f0); /* Default gradient */
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
-    .project-card:nth-child(2) {
-      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    .card:hover {
+      transform: scale(1.05);
+      z-index: 10;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
-    .project-card:nth-child(3) {
-      background: linear-gradient(135deg, #f6d365, #fda085);
-    }
-
-    .project-card:nth-child(4) {
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .project-card img {
+    .card img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 6px;
+      margin-bottom: 1rem;
     }
 
-    .project-card a {
+    .card p {
+      margin: 0.5rem 0;
+      font-weight: 500;
+    }
+
+    .card a {
       text-decoration: none;
-      font-weight: bold;
-      color: #333;
+      color: #000;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .green {
+      background: linear-gradient(to bottom, #e3f5e2, #d0f0d0);
+    }
+
+    .pink {
+      background: linear-gradient(to bottom, #fce2f2, #f9d2e4);
+    }
+
+    .blue {
+      background: linear-gradient(to bottom, #e0f6f5, #b7ebeb);
+    }
+
+    .rose {
+      background: linear-gradient(to bottom, #fddde9, #f9c7d9);
     }
 
     .contact {
@@ -377,21 +391,21 @@
   </section>
 
   <section id="project">
-    <h2>My Project</h2> 
-    <div class="projects">
-      <div class="project-card">
+    <h2>My Project</h2>
+    <div class="project-cards">
+      <div class="card green">
         <img src="images/ecoslp logo.png" alt="Project 1">
         <p><strong>Project #1</strong><br><a href="project1.html">View More →</a></p>
       </div>
-      <div class="project-card">
+      <div class="card pink">
         <img src="images/sosmed 1.png" alt="Project 2">
         <p><strong>Project #2</strong><br><a href="project2.html">View More →</a></p>
       </div>
-      <div class="project-card">
+      <div class="card blue">
         <img src="images/uiux 1.png" alt="Project 3">
         <p><strong>Project #3</strong><br><a href="project3.html">View More →</a></p>
       </div>
-      <div class="project-card">
+      <div class="card rose">
         <img src="images/poster 4.png" alt="Project 4">
         <p><strong>Project #4</strong><br><a href="project4.html">View More →</a></p>
       </div>
